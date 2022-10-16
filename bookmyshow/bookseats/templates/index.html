@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block card %}
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-10 offset-2 m-5">
+                    <h1>Now Showcasing</h1>
+                </div>
+            </div>
+            <div class="row">
+
+                {% for mo in movie %}
+                <div class="col-12 col-md-6 col-lg-3 mb-5 ">
+                    <a href="/movies/{{mo.pk}}">
+                        <div class="card shadow" style="width: 18rem; margin:0px auto;">
+                            <img src="{{ mo.movie_poster.url }}" class="card-img-top" height="380px">
+                            <div class="card-body">
+                                <h4 class="card-title text-center">{{ mo.movie_name }}</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock card %}
